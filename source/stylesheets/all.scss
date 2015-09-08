@@ -1,0 +1,19 @@
+$grey: #4F4C4C !global;
+$blue: #12A79D !global;
+
+@import 'lib/normalize';
+@import 'lib/bootstrap.min';
+
+@import 'layouts/nav';
+
+body {
+	margin-top:45px;
+}
+
+a:active, a:focus {
+	text-decoration: none;
+}
+
+img {
+	max-width:100%;
+}

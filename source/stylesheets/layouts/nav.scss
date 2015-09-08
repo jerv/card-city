@@ -1,0 +1,121 @@
+$nav-bg: $grey;
+nav {
+	background-color: $nav-bg;
+	position: fixed;
+	top:0;
+	width:100%;
+	height: 45px;
+	transition: 0.3s height ease-out;
+	.container {
+		position: relative;
+	}
+	.site-id {
+		position: absolute;
+		left: 8px;
+		top: 10px;
+		display: block;
+		transition: 0.3s all ease-out;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	#toggle {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		color: $grey;
+		background-color:#ccc;
+		border-radius: 5px;
+		padding: 5px;
+		font-size: 24px;
+		line-height: 25px;
+		width: 45px;
+		text-align: center;
+		transition: 0.2s background-color ease-out;
+		&:active {
+			background-color: #fff;
+		}
+		&.active {
+			background-color: $blue;
+			color: #fff;
+			box-shadow: 0 3px rgba(0,0,0,0.2) inset;
+			&:before {
+				content:"\f00d";
+			}
+		}
+	}
+	ul {
+		position: fixed;
+		top: 45px;
+		display: none;
+		right: 0;
+		width: 100%;
+		background-color: $blue;
+		margin: 0;
+		padding: 0;
+		li {
+			display: block;
+			margin:0;
+			&:first-of-type a {
+				border: none;
+			}
+			&:last-of-type a {
+				border: none;
+				background-color: rgba(0,0,0,0.2);
+			}
+		}
+		a {
+			color: #fff;
+			padding: 15px 15px;
+			display: block;
+			font-weight: bold;
+			text-transform: uppercase;
+			border-top:1px dashed rgba(0,0,0,0.15);
+			&:active, &:focus {
+				color: #fff;
+				background-color: rgba(250,250,250,0.3);
+			}
+		}
+		&.active {
+			display: block;
+		}
+	}
+	@media (min-width:992px) {
+		height: 80px;
+		.site-id {
+			padding: 15px 0;
+			top: 12px;
+			left: 0;
+		}
+		#toggle {
+			display: none;
+		}
+		ul {
+			display: block;
+			position: absolute;
+			top:22px;
+			right: 0;
+			background: none;
+			width: auto;
+			li {
+				display: inline-block;
+				&:last-of-type a {
+					background-color: #fff;
+					color: #222;
+					border-radius: 18px;
+					padding: 0 25px;
+					margin-left: 10px;
+				}
+			}
+			a {
+				padding:0 10px;
+				line-height: 36px;
+				border: none;
+				&:hover {
+					text-decoration: none;
+					color: lighten($blue, 10);
+				}
+			}
+		}
+	}
+}
