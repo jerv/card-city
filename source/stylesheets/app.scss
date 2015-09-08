@@ -1,13 +1,23 @@
 $grey: #4F4C4C !global;
+$light-grey: #BDBCBC !global;
 $blue: #12A79D !global;
 
 @import 'lib/normalize';
 @import 'lib/bootstrap.min';
 
 @import 'layouts/nav';
+@import 'layouts/footer';
+
+
+/*
+GLOBAL STYLES
+*/
 
 body {
 	margin-top:45px;
+	@media (min-width:992px) { 
+		margin-top: 80px;
+	}
 }
 
 a:active, a:focus {
