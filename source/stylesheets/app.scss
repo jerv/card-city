@@ -15,9 +15,7 @@ $blue: #12A79D !global;
 @import 'layouts/footer';
 
 
-/*
-GLOBAL STYLES
-*/
+/* BASE RULES */
 
 body {
   margin-top:45px;
@@ -32,6 +30,10 @@ body {
   }
 }
 
+p {
+  margin:0 0 15px 0;
+}
+
 a:active, a:focus {
   text-decoration: none;
 }
@@ -39,6 +41,27 @@ a:active, a:focus {
 img {
   max-width:100%;
 }
+
+/* /BASE RULES */
+
+/* UTILITIES */
+
+.u-divider {
+  display: block;
+  margin: 35px 0;
+  height: 15px;
+  border-top:2px solid #bbb;
+  border-bottom:2px solid #bbb;
+}
+
+.u-heading {
+  text-align: center;
+  font-size: 2em;
+  font-weight: normal;
+  margin: 10px 0 35px 0;
+}
+
+/* /UTILITIES */
 
 .l-splash {
   overflow: hidden;
@@ -133,5 +156,85 @@ img {
   p {
     font-style: italic;
     margin: 0 0 45px 0;
+  }
+}
+
+.l-about-hero {
+  text-align: center;
+  background-image:url('/images/example-tile.png');
+  background-repeat:repeat;
+  padding: 45px 0;
+  @media (min-width:768px) {
+    padding: 100px 0;
+  }
+  h2 {
+    font-size:2em;
+    margin: 0;
+  }
+}
+
+.l-about-steps {
+  img {
+    border-radius: 50%;
+    border: 2px solid $blue;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 240px;  
+  }
+  div.image-container {
+    position: relative;
+    &:after {
+      $badge-size:42px;
+      content:" ";
+      color: #fff;
+      border-radius: 50%;
+      display: block;
+      background-color: $grey;
+      position: absolute;
+      top: 50%;
+      margin-top: -($badge-size / 2);
+      left: -($badge-size / 2);
+      height: $badge-size;
+      width: $badge-size;
+      line-height: $badge-size;
+      text-align: center;
+    }
+  }
+  .col-md-3:nth-of-type(2) div.image-container:after {
+    content: "1";
+  }
+  .col-md-3:nth-of-type(3) div.image-container:after {
+    content: "2";
+  }
+  .col-md-3:nth-of-type(4) div.image-container:after {
+    content: "3";
+  }
+  h2 {
+    font-size: 2.2em;
+  }
+  h5 {
+    font-size: 1.2em;
+    margin:25px 0 0 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.l-about-logos {
+  img {
+    border-radius: 50%;
+    border: 2px solid $blue;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 90px;  
+  }
+  p {
+    margin: 10px 0 25px 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
