@@ -1,0 +1,52 @@
+$xs:5px;
+$sm:20px;
+$md:40px;
+$lg:60px;
+$xl:80px;
+
+$default-margin: 20px;
+$default-padding: 20px;
+
+[class|="margin"] {
+	margin-top: $default-margin; margin-bottom: $default-margin;
+}
+.margin-none {
+	margin-top: 0; margin-bottom: 0;
+}
+.margin-xs {
+	margin-top: $xs; margin-bottom: $xs;
+}
+.margin-sm {
+	margin-top: $sm; margin-bottom: $sm;
+}
+.margin-md {
+	margin-top: $md; margin-bottom: $md;
+}
+.margin-lg {
+	margin-top: $lg; margin-bottom: $lg;
+}
+.margin-xl {
+	margin-top: $xl; margin-bottom: $xl;
+} 
+
+[class|="padding"] {
+	padding-top: $default-padding; padding-bottom: $default-padding;
+}
+.padding-none {
+	padding-top: 0; padding-bottom: 0;
+}
+.padding-xs {
+	padding-top: $xs; padding-bottom: $xs;
+}
+.padding-sm {
+	padding-top: $sm; padding-bottom: $sm;
+}
+.padding-md {
+	padding-top: $md; padding-bottom: $md;
+}
+.padding-lg {
+	padding-top: $lg; padding-bottom: $lg;
+}
+.padding-xl {
+	padding-top: $xl; padding-bottom: $xl;
+}
