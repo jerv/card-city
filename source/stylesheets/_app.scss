@@ -1,18 +1,16 @@
-$grey: #4F4C4C !global;
-$light-grey: #BDBCBC !global;
-$blue: #12A79D !global;
+@import '_variables';
 
 /* LIB */
-@import 'lib/normalize';
-@import 'lib/bootstrap.min';
+@import 'lib/_normalize';
+@import 'lib/_bootstrap.min';
 
 /* MODULES */
-@import 'modules/spacing';
-@import 'modules/map';
+@import 'modules/_spacing';
+@import 'modules/_map';
 
 /* LAYOUTS */
-@import 'layouts/nav';
-@import 'layouts/footer';
+@import 'layouts/_nav';
+@import 'layouts/_footer';
 
 
 /* BASE RULES */
