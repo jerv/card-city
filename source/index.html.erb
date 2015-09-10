@@ -31,3 +31,135 @@ title: Card City
 		</div>
 	</div>
 </div>
+
+
+<div id="map_canvas"></div>
+
+<div class="margin-xl">
+	<div class="container">
+		Locations go here
+	</div>
+</div>
+
+<div class="margin-xl l-team">
+	<div class="container">
+    <h2>We're proud of #TEAMCARDCITY</h2>
+		<div class="row">
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Daniel Valdivia</h5>
+        <p>el chapulin</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Foshawn</h5>
+        <p>flamespitter</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Jose Ramirez</h5>
+        <p>olympian</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>DJ K Rich</h5>
+        <p>On the 1's &amp; 2's</p>
+      </div>
+		</div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Daniel Valdivia</h5>
+        <p>el chapulin</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Foshawn</h5>
+        <p>flamespitter</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>Jose Ramirez</h5>
+        <p>olympian</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= image_tag 'http://placehold.it/500x500' %>
+        <h5>DJ K Rich</h5>
+        <p>On the 1's &amp; 2's</p>
+      </div>
+    </div>
+	</div>
+</div> 
+
+<!--
+Add the code below to the bottom of your page, just before the closing </body> tag.
+Edit myLatlng and the other variables.
+
+Find syntax for Features that can be styled here:
+
+https://developers.google.com/maps/documentation/javascript/reference#MapTypeStyleFeatureType
+
+Or use a service such as:
+
+http://software.stadtwerk.org/google_maps_colorizr/#
+http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
+https://developers.google.com/maps/documentation/javascript/tutorial
+-->
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  var bittersMap = (function () {
+    var myLatlng = new google.maps.LatLng(59.342457, 18.057340),
+        mapCenter = new google.maps.LatLng(59.340458, 18.057340),
+        mapCanvas = document.getElementById('map_canvas'),
+        mapOptions = {
+          center: mapCenter,
+          zoom: 13,
+          scrollwheel: false,
+          draggable: true,
+          disableDefaultUI: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        },
+        map = new google.maps.Map(mapCanvas, mapOptions),
+        contentString =
+          '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">thoughtbot</h1>'+
+          '<div id="bodyContent"'+
+          '<p>Sveavägen 98</p>'+
+          '</div>'+
+          '</div>',
+        infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 300
+        }),
+        marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'thoughtbot (Sweden)'
+        });
+
+    return {
+      init: function () {
+        map.set('styles', [{
+          featureType: 'landscape',
+          elementType: 'geometry',
+          stylers: [
+            { hue: '#ffff00' },
+            { saturation: 30 },
+            { lightness: 10}
+          ]}
+        ]);
+
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.open(map,marker);
+        });
+      }
+    };
+  }());
+
+  bittersMap.init();
+</script>
+
+
