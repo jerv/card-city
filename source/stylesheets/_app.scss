@@ -114,8 +114,19 @@ img {
 
 .l-offer {
   img {
-    margin-bottom: 15px;
     width: 100%;
+  }
+  h5 {
+    margin:0 0 15px 0;
+    background-color: #ddd;
+    padding: 10px 25px;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #444;
+  }
+  .col-sm-6 h5 {
+    text-align:left;
   }
   @media (min-width:768px) {
     .row {
@@ -124,7 +135,7 @@ img {
     .col-sm-3 {
       padding: 0 0 0 15px;
     }
-    img {
+    h5 {
       margin-bottom: 0;
     }
   } 
