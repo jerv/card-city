@@ -157,7 +157,7 @@ img {
   }
 }
 
-.l-about-hero {
+.l-hero {
   text-align: center;
   background-image:url('/images/example-tile.png');
   background-repeat:repeat;
@@ -234,5 +234,24 @@ img {
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+  }
+}
+
+.l-contact {
+  background-color: #F4F4F4;
+  img {
+    width: 100%;
+    max-width: 67px;
+    display: block;
+    margin: 25px auto 45px auto;
+  }
+  h5 {
+    font-size: 1em;
+    text-transform: uppercase;
+    margin:0;
+    letter-spacing: 0.1em;
+  }
+  p {
+    font-style: italic;
   }
 }
