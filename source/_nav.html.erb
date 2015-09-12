@@ -1,16 +1,16 @@
 <nav>
 	<div class="container">
-		<% link_to '/', :class=>'site-id' do %>
+		<% link_to '#splash', :class=>'site-id scroll-on-page-link' do %>
 			<%= image_tag 'logo.png' %>
 		<% end %>
 
 		<i id="toggle" class="fa fa-bars"></i>
 		<ul>
-			<li><%= link_to 'locations', '#locations' %></li>
-			<li><%= link_to '#teamcardcity', '#card-city' %></li>
-			<li><%= link_to 'about', '#about' %></li>
-			<li><%= link_to 'Contact', '#contact' %></li>
-			<li><%= link_to 'Find your Location', '#locations' %></li>
+			<li><%= link_to 'locations', '#map_canvas', :class=>'scroll-on-page-link' %></li>
+			<li><%= link_to '#teamcardcity', '#card-city', :class=>'scroll-on-page-link' %></li>
+			<li><%= link_to 'about', '#about', :class=>'scroll-on-page-link' %></li>
+			<li><%= link_to 'Contact', '#contact', :class=>'scroll-on-page-link' %></li>
+			<li><%= link_to 'Find your Location', '#map_canvas', :class=>'scroll-on-page-link' %></li>
 		</ul>
 	</div>
 </nav>
