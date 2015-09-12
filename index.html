@@ -12,7 +12,25 @@
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <link href="stylesheets/app-ac434a67.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57-5109c16a.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60-06ea39c5.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72-50b6d08a.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76-5e73116c.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114-45a20530.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120-1b80e152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144-46e96526.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152-7e21d28f.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180-8b1fee09.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192-ea2f0705.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32-13fbcd7a.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96-36f6a1e3.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16-5219a764.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144-46e96526.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="stylesheets/app-ff51849c.css" rel="stylesheet" />
     <script src="javascripts/all-45b73b03.js"></script>
 
   </head>
@@ -20,19 +38,19 @@
   <body class="index">
     <nav>
 	<div class="container">
-<a class="site-id" href="/">			<img src="images/logo-704d2bfd.png" />
+<a class="site-id scroll-on-page-link" href="#splash">			<img src="images/logo-704d2bfd.png" />
 </a>
 		<i id="toggle" class="fa fa-bars"></i>
 		<ul>
-			<li><a href="#locations">locations</a></li>
-			<li><a href="#card-city">#teamcardcity</a></li>
-			<li><a href="#about">about</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li><a href="#locations">Find your Location</a></li>
+			<li><a class="scroll-on-page-link" href="#map_canvas">locations</a></li>
+			<li><a class="scroll-on-page-link" href="#card-city">#teamcardcity</a></li>
+			<li><a class="scroll-on-page-link" href="#about">about</a></li>
+			<li><a class="scroll-on-page-link" href="#contact">Contact</a></li>
+			<li><a class="scroll-on-page-link" href="#map_canvas">Find your Location</a></li>
 		</ul>
 	</div>
 </nav>
-    <div class="l-splash">
+    <div class="l-splash" id="splash">
 	<div class="container">
 		<div class="controls">
 			<h5>at card city</h5>
@@ -74,7 +92,7 @@
 	</div>
 </div>
 
-<div class="margin-xl l-team">
+<div class="margin-xl l-team" id="card-city">
 	<div class="container">
     <h2>We're proud of #TEAMCARDCITY</h2>
 		<div class="row">
@@ -124,7 +142,7 @@
 	</div>
 </div> 
 
-<div class="l-hero">
+<div id="about" class="l-hero">
   <div class="container">
     <h2>Liberating the value of gift cards into cold hard cash!</h2>
   </div>
@@ -229,7 +247,7 @@
   </div>
 </div>
 
-<div class="l-hero">
+<div id="contact" class="l-hero">
   <div class="container">
     <h2>Connect with us</h2>
   </div>
@@ -238,7 +256,26 @@
 <div class="container padding-md">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      contact forms will go here.
+      <form>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <input type="text" placeholder="Name">
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <input type="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <input type="text" placeholder="Name">
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <select>
+              <option>Location</option>
+            </select>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="col-xs-12 col-md-4 l-contact">
       <img src="images/colored-logo-1496199b.png" />
@@ -272,6 +309,8 @@ https://developers.google.com/maps/documentation/javascript/tutorial
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
+  // map stuff
+
   var bittersMap = (function () {
     var myLatlng = new google.maps.LatLng(59.342457, 18.057340),
         mapCenter = new google.maps.LatLng(59.340458, 18.057340),
@@ -324,6 +363,39 @@ https://developers.google.com/maps/documentation/javascript/tutorial
   }());
 
   bittersMap.init();
+
+  // scroll stuff 
+
+  (function (jQuery) {
+    jQuery.mark = {
+      jump: function (options) {
+        var defaults = {
+          selector: 'a.scroll-on-page-link'
+        };
+        if (typeof options == 'string') {
+          defaults.selector = options;
+        }
+
+        options = jQuery.extend(defaults, options);
+        return jQuery(options.selector).click(function (e) {
+          var jumpobj = jQuery(this);
+          var target = jumpobj.attr('href');
+          var thespeed = 700;
+          var offset = jQuery(target).offset().top - 80;
+          jQuery('html,body').animate({
+            scrollTop: offset
+          }, thespeed, 'swing');
+          e.preventDefault();
+        });
+      }
+    };
+  })(jQuery);
+
+
+  jQuery(function(){  
+    jQuery.mark.jump();
+  });
+
 </script>
 
 
@@ -336,10 +408,10 @@ https://developers.google.com/maps/documentation/javascript/tutorial
 			</div>
 			<div class="col-xs-12 col-md-8">
 				<ul>
-					<li><a href="#locations">locations</a></li>
-					<li><a href="#card-city">#teamcardcity</a></li>
-					<li><a href="#about">about</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a class="scroll-on-page-link" href="#map_canvas">locations</a></li>
+					<li><a class="scroll-on-page-link" href="#card-city">#teamcardcity</a></li>
+					<li><a class="scroll-on-page-link" href="#about">about</a></li>
+					<li><a class="scroll-on-page-link" href="#contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
