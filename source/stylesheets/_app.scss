@@ -68,6 +68,18 @@ img {
   margin: 10px 0 35px 0;
 }
 
+@media (max-width: 991px) {
+  .u-mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-mobile-text-center {
+    text-align: center;
+  }
+}
+
 
 /* /UTILITIES */
 
@@ -260,6 +272,15 @@ img {
   }
 }
 
+@media (max-width: 991px) {
+  #ezt-1.ezt-nav {
+    display: none !important;
+  }
+  #ezt-1 .ezt-content {
+    display: block !important;
+  }
+}
+
 .l-team {
   text-align: center;
   h2 {
@@ -301,16 +322,20 @@ img {
 }
 
 .l-about-steps {
+  text-align: center;
+  @media (min-width:992px) {
+    text-align:left;
+  }
   img {
     border-radius: 50%;
     border: 2px solid $blue;
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    max-width: 240px;
   }
   div.image-container {
     position: relative;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+    display: block;
     &:after {
       $badge-size: 42px;
       content: " ";
@@ -345,7 +370,7 @@ img {
     margin: 25px 0 0 0;
   }
   p {
-    margin: 0;
+    margin: 0 0 30px 0;
     line-height: 1.4;
   }
 }
@@ -407,19 +432,20 @@ ul.l-contact-tabs {
     height: 0;
   }
   li {
-    display: block;
-    padding: 15px 20px;
     text-align: center;
-    font-size: 11px;
-    letter-spacing: 0.1em;
     margin-bottom: 5px;
-    transition: background-color 0.2s ease-out;
-    cursor: pointer;
-    &:hover {
-      background-color: #eee;
-    }
-    &.ezt-active {
-      background-color: #ccc;
+    a {
+      display: block;
+      padding: 15px 20px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      transition: background-color 0.2s ease-out;
+      &:hover {
+        background-color: #eee;
+      }
+      &.ezt-active {
+        background-color: #ccc;
+      }
     }
     @media (min-width: 992px) {
       display: inline-block;
