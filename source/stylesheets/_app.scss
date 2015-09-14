@@ -10,6 +10,7 @@
 
 @import 'modules/_spacing';
 @import 'modules/_map';
+@import 'modules/_ezt';
 
 /* LAYOUTS */
 
@@ -63,8 +64,7 @@ img {
 
 .u-heading {
   text-align: center;
-  font-size: 2em;
-  font-weight: normal;
+  font-size: 1.8em;
   margin: 10px 0 35px 0;
 }
 
@@ -149,6 +149,113 @@ img {
     }
     h5 {
       margin-bottom: 0;
+    }
+  }
+}
+
+.l-location-nav {
+  margin:10px 0 0 0;
+  padding:0;
+  li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    a {
+      margin-bottom: 30px;
+      display: block;
+      position: relative;
+      &:hover {
+        text-decoration: none;
+        @media (min-width:992px) {
+          &:after {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 4px;
+            border-color: transparent transparent transparent #cccccc;
+            position: absolute;
+            right: -12px;
+            top: 3px;
+            content: "";
+          }
+        }
+        span {
+          color: #333;
+          padding-left: 3px;
+        }
+        span.label {
+          color: $blue;
+        }
+      }
+    }
+    a.ezt-active {
+      span {
+        color: #333
+      }
+      span.label {
+        color: $blue;
+      }
+      @media (min-width:992px) {
+        &:after {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 4px 0 4px 4px;
+          border-color: transparent transparent transparent $blue;
+          position: absolute;
+          right: -12px;
+          top: 3px;
+          content: "";
+        }
+      }
+    }
+    span {
+      color: #777;
+      font-size: 18px;
+      font-weight:bold;
+      border-bottom: 1px solid #eee;
+      display: block;
+      transition: all 0.2s ease-out;
+      padding-bottom: 3px;
+      line-height: 1.5;
+      &.label {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        font-weight: bold;
+        color: #777;
+        border: none;
+      }
+    }
+  }
+}
+
+.l-location-content {
+  h2 {
+    font-size: 1.4em;
+    margin:0 0 15px 0;
+  }
+  h4 {
+    margin:10px 0 15px 0;
+    font-size: 1em;
+    font-weight: normal;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding-top: 25px;
+    border-top: 2px dashed #ddd;
+    &:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border: none;
+    }
+  }
+  p {
+    color: #777;
+    font-style: italic;
+    cursor: pointer;
+    padding: 5px 0;
+    margin: 0 0 10px 0;
+    &:hover {
+      color: $blue;
     }
   }
 }
@@ -255,13 +362,21 @@ img {
   p {
     margin: 10px 0 25px 0;
     text-align: center;
+    letter-spacing: 0.1em;
     font-weight: bold;
+    font-size: 12px;
     text-transform: uppercase;
+    font-family: 'Open Sans', serif;
   }
 }
 
 .l-contact {
   background-color: #F4F4F4;
+  text-align: center;
+  padding: 15px;
+  @media (min-width: 992px) {
+    text-align: left;
+  }
   img {
     width: 100%;
     max-width: 67px;
@@ -279,10 +394,18 @@ img {
   }
 }
 
-ul.tab-nav.contact {
+ul.l-contact-tabs {
   list-style-type:none;
   margin:0;
   padding:0;
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
   li {
     display: block;
     padding: 15px 20px;
@@ -295,14 +418,25 @@ ul.tab-nav.contact {
     &:hover {
       background-color: #eee;
     }
-    .is-active {
+    &.ezt-active {
       background-color: #ccc;
     }
-    @media (min-width: 850px) {
+    @media (min-width: 992px) {
       display: inline-block;
-      margin-right: 0.5rem;
+      float: left;
       margin-bottom: 15px;
-      width: 32%;
+      width: 33%;
+      margin-left:0.5%;
+      &:first-of-type {
+        margin-left:0;
+      }
+    }
+  }
+  a {
+    color: #333;
+    &:hover {
+      color: #333;
+      text-decoration: none;
     }
   }
 }
