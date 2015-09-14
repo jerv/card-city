@@ -152,6 +152,11 @@ img {
   .col-sm-6 h5 {
     text-align: left;
   }
+  section {
+    max-width: 320px;
+    margin:0 auto;
+    display: block;
+  }
   @media (min-width:768px) {
     .row {
       margin-right: 0;
@@ -272,7 +277,7 @@ img {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   #ezt-1.ezt-nav {
     display: none !important;
   }
