@@ -208,26 +208,60 @@ title: Card City
 <div class="container padding-md">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <form>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <input type="text" placeholder="Name">
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <input type="email" placeholder="Email">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <input type="text" placeholder="Name">
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <select>
-              <option>Location</option>
-            </select>
-          </div>
-        </div>
-      </form>
+      <ul id="tabs-1" class="tab-nav contact">
+        <li class="is-active">
+          GENERAL<br>INQUIRIES
+        </li>
+        <li>
+          PROMOTIONAL<br>INQUIRIES
+        </li>
+        <li>
+          MEDIA<br>INQUIRIES
+        </li>
+      </ul>
+      <div id="tabs-1">
+        <section class="is-active">
+          <form>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <input type="text" placeholder="Name">
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <input type="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <input type="number" placeholder="Phone">
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <select>
+                  <option>Location</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <textarea placeholder="Whats going on."></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <input type="submit" value="Submit">
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <input type="reset" value="Reset">
+              </div>
+            </div>
+          </form>
+        </section>
+        <section>
+          second section
+        </section>
+        <section>
+          third section
+        </section>
+      </div>
     </div>
     <div class="col-xs-12 col-md-4 l-contact">
       <%= image_tag 'colored-logo.png' %>
