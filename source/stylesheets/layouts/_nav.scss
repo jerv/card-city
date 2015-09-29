@@ -1,29 +1,57 @@
-$nav-bg: $grey;
+$nav-bg: #F2F3F4;
 nav {
 	background-color: $nav-bg;
 	position: fixed;
-	top:0;
+	top:5px;
 	width:100%;
-	height: 45px;
+	height: 50px;
 	transition: 0.3s height ease-out;
 	z-index: 9999;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+	.stripes {
+		position: absolute;
+		top: -5px;
+		left: 0;
+		width: 100%;
+		& > div {
+			display: inline-block;
+			width: 25%;
+			height: 5px;
+			float: left;
+			&:nth-of-type(1) {
+				background-color: $blue;
+			}
+			&:nth-of-type(2) {
+				background-color: $red;
+			}
+			&:nth-of-type(3) {
+				background-color: $yellow;
+			}
+			&:nth-of-type(4) {
+				background-color: $purple;
+			}
+		}
+	}
 	.container {
 		position: relative;
 	}
 	.site-id {
 		position: absolute;
-		left: 12px;
-		top: 10px;
+		left: 0;
+		top: 0;
 		display: block;
 		transition: 0.3s all ease-out;
+		img {
+			height: 50px;
+		}
 		&:hover {
 			opacity: 0.8;
 		}
 	}
 	#toggle {
 		position: absolute;
-		top: 5px;
-		right: 5px;
+		top: 8px;
+		right: 8px;
 		color: $grey;
 		background-color:#ccc;
 		border-radius: 5px;
@@ -47,13 +75,14 @@ nav {
 	}
 	ul {
 		position: fixed;
-		top: 45px;
+		top: 55px;
 		display: none;
 		right: 0;
 		width: 100%;
 		background-color: $blue;
 		margin: 0;
 		padding: 0;
+		font-size: 12px;
 		li {
 			display: block;
 			margin:0;
@@ -89,11 +118,17 @@ nav {
 		}
 	}
 	@media (min-width:992px) {
-		height: 80px;
+		top:10px;
+		height: 70px;
+		.stripes {
+			top:-10px;
+			& > div {
+				height: 10px;
+			}
+		}
 		.site-id {
-			padding: 15px 0;
-			top: 12px;
-			left: 15px;
+			top: 10px;
+			left: 10px;
 		}
 		#toggle {
 			display: none;
@@ -101,7 +136,7 @@ nav {
 		ul {
 			display: block;
 			position: absolute;
-			top:22px;
+			top:17px;
 			right: 15px;
 			background: none;
 			width: auto;
@@ -113,6 +148,15 @@ nav {
 					border-radius: 18px;
 					padding: 0 25px;
 					margin-left: 10px;
+				  box-shadow: 0 0 0 2px #ccc inset;
+				  &:hover {
+				  	color: #fff;
+				  	background-color: $blue;
+				  	box-shadow: 0 0 0 2px rgba(0,0,0,0.1) inset;
+				  }
+				  &:active {
+				  	background-color: lighten($blue, 5);
+				  }
 				}
 			}
 			a {
@@ -120,9 +164,15 @@ nav {
 				line-height: 36px;
 				border: none;
 				border-radius: 3px;
-				color:  rgba(250,250,250,0.9);
-				&:active {
-					background-color: rgba(250,250,250,0.1);
+				color: #555;
+				&:hover {
+					color:#222;
+				}
+				&:focus {
+					color: #222;
+				}
+				&:active {	
+					background-color: #fff;
 				}
 			}
 		}
