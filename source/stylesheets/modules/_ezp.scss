@@ -1,0 +1,74 @@
+.ez-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: -1;
+	padding: 5%;
+	z-index: 9999;
+	padding: 10px;
+	&.video {
+		article {
+			padding: 0;
+		}
+	}
+	.screen {
+		background-color: rgba(0,0,0,0.7);
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: fixed;
+		top:0;
+		left:0;
+	}
+	&.active {
+		display: block;
+	}
+	article {
+		transition: 0.3s all ease-out;
+		border-radius: 3px;
+		background-color: #fff;
+		box-shadow:0 4px 6px rgba(0,0,0,0.2);
+		top:25px;
+		padding: 15px;
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		display: block;
+		padding: 15px;
+		text-align: center;
+		position: relative;
+		overflow: visible;
+		z-index: 2;
+		i {
+			cursor: pointer;
+			color: #fff;
+			display: block;
+			font-size: 18px;
+			line-height: 32px;
+			text-align: center;
+			height: 32px;
+			width: 32px;
+			position: absolute;
+			top: -16px;
+			right: -16px;
+			z-index: 99999;
+			background-color: #666;
+			border-radius: 50%;
+			transition: all 0.2s ease-out;
+			box-shadow:0 3px 4px rgba(0,0,0,0.1);
+			&:hover {
+				background-color: $red;
+				box-shadow:0 4px 6px rgba(0,0,0,0.2);
+			}
+		}
+	}
+	@media (min-width:992px) {
+		article {
+			padding: 40px 15px;
+			min-height: 250px;
+		}
+	}
+}

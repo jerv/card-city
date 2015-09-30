@@ -3,16 +3,13 @@ title: Card City
 ---
 
 <div class="l-splash anchor" id="splash">
+  <div class="screen">&nbsp;</div>
 	<div class="container">
 		<div class="controls">
 			<h5>at card city</h5>
 			<h1>Your cards are your cash</h1>
-			<div class="play">Watch the video</div>
+			<div class="play ez-popup-trigger" id="ez-popup-1">Watch the video</div>
 		</div>
-		<video autoplay loop>
-		  <source src="videos/splash.mp4" type="video/mp4">
-			I'm sorry our browser does not support this video format.
-		</video>
 	</div>
 </div>
 
@@ -28,13 +25,13 @@ title: Card City
         <% end %>
 			</div>
 			<div class="col-xs-12 col-sm-3">
-				<section>
+				<section class="ez-popup-trigger" id="ez-popup-2">
           <%= image_tag 'http://placehold.it/500x500' %>
           <h5>Enter to win</h5>
         </section>
 			</div>
 			<div class="col-xs-12 col-sm-3">
-				<section>
+				<section class="ez-popup-trigger" id="ez-popup-3">
           <%= image_tag 'http://placehold.it/500x500' %>
           <h5>Enter to win</h5>
         </section>
@@ -293,7 +290,7 @@ title: Card City
     <div class="row">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         <p>
-          Since we were founded in 2012, we’ve taken our mission of helping our Cardcitizens free up their unused gi card values seriously. We’ve grown beyond our humble beginnings in Fresno to 11 locations throughout California (with more on the way). Along the way, we’ve learned a lot about how to best serve our customers to make converting your gi cards to cash as convenient a process as possible.
+          Since we were founded in 2012, we’ve taken our mission of helping our Cardcitizens free up their unused gift card values seriously. We’ve grown beyond our humble beginnings in Fresno to 11 locations throughout California (with more on the way). Along the way, we’ve learned a lot about how to best serve our customers to make converting your gift cards into cash as convenient a process as possible.
         </p>
       </div>
     </div>
@@ -413,7 +410,7 @@ title: Card City
     </div>
     <div class="col-xs-12 col-md-4">
       <div class="l-contact">
-        <%= image_tag 'colored-logo.png' %>
+        <%= image_tag 'logo.png' %>
 
         <h5>MAIL</h5>
         <p>
@@ -428,6 +425,41 @@ title: Card City
     </div>
   </div>
 </div>
+
+<!-- POP UPS -->
+
+<div class="ez-popup video" id="ez-popup-1">
+  <article>
+    <section>
+      <i class="fa fa-close"></i>
+      <div class="video">
+        <!-- FLOYD IMPORTANT ONLY CHANGE VIDEO ID, MAKE SURE NOT TO DELETE ?api=1 -->
+        <div class="video-wrapper">
+          <iframe src="https://player.vimeo.com/video/108491402?api=1&color=ffffff&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="player1"></iframe>
+        </div>
+      </div>
+    </section>
+  </article>
+  <div class="screen"></div>
+</div>
+
+<div class="ez-popup" id="ez-popup-2">
+  <article>
+    <i class="fa fa-close"></i>
+    Sign up content 2
+  </article>
+  <div class="screen"></div>
+</div>
+
+<div class="ez-popup" id="ez-popup-3">
+  <article>
+    <i class="fa fa-close"></i>
+    Sign up content 3
+  </article>
+  <div class="screen"></div>
+</div>
+
+<!-- /POP UPS -->
 
 <!--
 Add the code below to the bottom of your page, just before the closing </body> tag.
@@ -444,6 +476,7 @@ https://developers.google.com/maps/documentation/javascript/tutorial
 -->
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="javscript/vimeo.js"></script>
 <script>
   // map stuff
 
@@ -533,7 +566,6 @@ https://developers.google.com/maps/documentation/javascript/tutorial
     };
   })(jQuery);
 
-
   jQuery(function(){  
     jQuery.mark.jump();
 
@@ -551,6 +583,35 @@ https://developers.google.com/maps/documentation/javascript/tutorial
         $(ezTarget + ' .ezt-content').removeClass('ezt-active');
         $(ezTarget + ' .ezt-content:nth-child(' + ezIndex + ')').addClass('ezt-active');
       }            
+    });
+
+    var iframe = document.getElementById('player1');
+
+    // $f == Froogaloop
+    var player = $f(iframe);
+
+    $( '.ez-popup-trigger' ).click(function() {
+      var target = '#' + $(this).attr('id');
+      $(target + '.ez-popup').addClass('active');
+
+      var isVideo = $(target + '.ez-popup').hasClass('video');
+
+      if (isVideo) {
+        player.api("play");
+      }
+    });
+
+    $( '.ez-popup i' ).click(function() {
+      $('.ez-popup').removeClass('active');
+      var target = '#' + $(this).parent().attr('id');
+
+      player.api("pause");
+    });
+
+    $( '.screen' ).click(function() {
+      var target = $(this).parent();
+      $(target).removeClass('active');
+      player.api("pause");
     });
   });
 
