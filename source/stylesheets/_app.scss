@@ -117,32 +117,47 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     position: relative;
     z-index: 3;
-    text-shadow: 0 2px rgba(0,0,0,0.3);
+    section {
+      display: block;
+    }
     h5 {
       margin: 0;
+      display: inline-block;
+      line-height: 2em;
+      padding: 0 15px;
       font-size: 1em;
       letter-spacing: 0.2em;
-      font-weight: 400;
+      font-style: italic;
+      font-weight: 300;
+      background-color: $blue;
     }
     h1 {
+      background-color: $red;
+      display: inline-block;
+      padding:0 15px;
       margin: 0 0 1em 0;
-      line-height: 1;
+      line-height: 1.5;
+      font-style: italic;
       text-transform: none;
-      font-weight: normal;
+      font-weight: 300;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
   }
   .play {
     padding: 0 25px;
-    border: 1px solid #fff;
+    border-color: $blue;
+    background-color: $blue;
+    color: #fff;
     line-height: 28px;
     border-radius: 18px;
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     &:hover {
-      border-color: $blue;
-      background-color: $blue;
+      border-color: lighten($blue, 5);
+      background-color: lighten($blue, 5);
       color: #fff;
     }
   }
@@ -373,7 +388,15 @@ h1, h2, h3, h4, h5, h6 {
   }
   p {
     font-style: italic;
-    margin: 0 0 45px 0;
+    margin: 0 0 15px 0;
+    &.bio {
+      font-style: normal;
+      margin: 5px 0 45px 0;
+      text-align: left;
+      line-height: 1.5;
+      font-size: 12px;
+      color: #777;
+    }
   }
 }
 
@@ -461,13 +484,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .l-about-logos {
+  .col-xs-6 {
+    height: 160px;
+  }
   img {
-    border-radius: 50%;
-    border: 2px solid $blue;
     margin: 0 auto;
     display: block;
     width: 100%;
-    max-width: 90px;
+    max-width: 180px;
   }
   p {
     margin: 10px 0 25px 0;
