@@ -9,7 +9,7 @@
 
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Card City</title>
-    
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57-45f0c05f.png">
@@ -35,7 +35,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700' rel='stylesheet' type='text/css'>
 
     <link href="stylesheets/app-a5217578.css" rel="stylesheet" />
-    <script src="javascripts/all-119e7462.js"></script>
+    <script src="javascripts/all-bfe8f8ad.js"></script>
 
   </head>
 
@@ -143,28 +143,39 @@
             <h2>Northern California</h2>
             <h4>Modesto</h4>
             <p>
-              1057 Orangeburg Ave, Modesto 95350.<br>
+              <span>
+                1057 Orangeburg Ave, Modesto 95350.<br>
+              </span>
               NE corner of Orangeburg/College near Pizza Hut<br>
               209-248-5216
             </p>
             <p>
-              408 South Mt. Shasta Blvd Mt. Bakersfield, CA, 96067 661-926-6337
+              <span>
+                408 South Mt. Shasta Blvd Mt. Bakersfield, CA, 96067
+              </span>
+              661-926-6337
             </p>
             <h4>Sacramento</h4>
             <p>
-              291 Arden Way, Ste 3<br>
-              Sacramento 95823<br>
+              <span>
+                291 Arden Way, Ste 3<br>
+                Sacramento 95823<br>
+              </span>
               NW corner of Arden Way/Wright<br>
               916-333-2491
             </p>
             <p>
-              7725 Stockton Blvd<br>
-              Sacramento, Ca 95823<br>
+              <span>
+                7725 Stockton Blvd<br>
+                Sacramento, Ca 95823<br>
+              </span>
               916-330-1779
             </p>
             <h4>Stockton</h4>
             <p>
-              707 E March Ln #4, Stockton, Ca 95207<br>
+              <span>
+                707 E March Ln #4, Stockton, Ca 95207<br>
+              </span>
               On March Ln, west of West ave. In the Holiday Plaza near Dominoes<br>
               209-451-1756. Open 10:30-9:30 7 days a week.
             </p>
@@ -174,17 +185,23 @@
             <h2>Central California</h2>
             <h4>Fresno</h4>
             <p>
-              4753 N Blackstone, Fresno Ca 93726<br>
+              <span>
+                4753 N Blackstone, Fresno Ca 93726<br>
+              </span>
               Between Shaw and Gettysburg behind Me n Eds<br>
               559-981-5091
             </p>
             <p>
-              3738 W. Shields Ave,<br> 
-              Fresno, Ca 93722<br>
+              <span>
+                3738 W. Shields Ave,<br> 
+                Fresno, Ca 93722<br>
+              </span>
               559-271-555
             </p>
             <p>
-              3611 Stockdale Hwy Ste I-1, Bakersfeild, 93309<br>
+              <span>
+                3611 Stockdale Hwy Ste I-1, Bakersfeild, 93309<br>
+              </span>
               Corner of Stockdale Hwy/Real Rd....behind 7-11<br>
               661-381-7677
             </p>
@@ -194,8 +211,10 @@
             <h2>Southern California</h2>
             <h4>Torrance</h4>
             <p>
-              2776 W Sepulveda Blvd,<br>
-              Torrance, Ca 90505
+              <span>
+                2776 W Sepulveda Blvd,<br>
+                Torrance, Ca 90505
+              </span>
             </p>
           </section>
         </div>
@@ -503,63 +522,7 @@ https://developers.google.com/maps/documentation/javascript/tutorial
 -->
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
-<script type="text/javascript" src="javscript/vimeo.js"></script>
 <script>
-  // map stuff
-
-  var bittersMap = (function () {
-    var myLatlng = new google.maps.LatLng(59.342457, 18.057340),
-        mapCenter = new google.maps.LatLng(59.340458, 18.057340),
-        mapCanvas = document.getElementById('map_canvas'),
-        mapOptions = {
-          center: mapCenter,
-          zoom: 13,
-          scrollwheel: false,
-          draggable: true,
-          disableDefaultUI: true,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        },
-        map = new google.maps.Map(mapCanvas, mapOptions),
-        contentString =
-          '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h1 id="firstHeading" class="firstHeading">thoughtbot</h1>'+
-          '<div id="bodyContent"'+
-          '<p>Sveavägen 98</p>'+
-          '</div>'+
-          '</div>',
-        infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 300
-        }),
-        marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'thoughtbot (Sweden)'
-        });
-
-    return {
-      init: function () {
-        map.set('styles', [{
-          featureType: 'landscape',
-          elementType: 'geometry',
-          stylers: [
-            { hue: '#ffff00' },
-            { saturation: 30 },
-            { lightness: 10}
-          ]}
-        ]);
-
-        google.maps.event.addListener(marker, 'click', function () {
-          infowindow.open(map,marker);
-        });
-      }
-    };
-  }());
-
-  bittersMap.init();
-
   // scroll stuff 
 
   (function (jQuery) {
