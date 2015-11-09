@@ -356,18 +356,20 @@ title: Card City
       </ul>
       <div id="ezt-2">
         <section class="ezt-content ezt-active">
-          <form>
+          <form
+              action="//formspree.io/info@cardcity.com"
+              method="POST" >
             <div class="row">
               <div class="col-xs-12 col-sm-6">
-                <input type="text" placeholder="Name">
+                <input name="name" type="text" placeholder="Name">
               </div>
               <div class="col-xs-12 col-sm-6">
-                <input type="email" placeholder="Email">
+                <input name="email" type="email" placeholder="Email">
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
-                <input type="number" placeholder="Phone">
+                <input name="phone" type="number" placeholder="Phone">
               </div>
               <div class="col-xs-12 col-sm-6">
                 <select>
@@ -377,7 +379,7 @@ title: Card City
             </div>
             <div class="row">
               <div class="col-xs-12">
-                <textarea placeholder="Whats going on."></textarea>
+                <textarea name="description" placeholder="Whats going on."></textarea>
               </div>
             </div>
             <div class="row">
