@@ -3,6 +3,9 @@ $(document).ready(function() {
 
   var HEADER_HEIGHT = 70;
 
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var DRAGGABLE = w > 480 ? true : false;
+
   var bittersMap = (function () {
     var geocoder= new google.maps.Geocoder(),
         markers = [],
@@ -13,7 +16,7 @@ $(document).ready(function() {
           center: mapCenter,
           zoom: 13,
           scrollwheel: false,
-          draggable: true,
+          draggable: DRAGGABLE,
           disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         },
