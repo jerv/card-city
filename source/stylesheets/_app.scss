@@ -409,6 +409,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 240px;
   }
   .col-md-3 {
+    position: relative;
+    margin-bottom: 45px;
     &:nth-of-type(1n) img {
       border-color: $blue;
     }
@@ -421,24 +423,110 @@ h1, h2, h3, h4, h5, h6 {
     &:nth-of-type(4n) img {
       border-color: $purple;
     }
+    @media (max-width:991px) {
+      .bio-link {
+        display: block;
+        margin: 10px 0;
+        &:before {
+          content: "Show ";
+        }
+      }
+      .bio {
+        padding: 15px 0;
+        display: none;
+        &.active {
+          display: block;
+        }
+        h5 {
+          display: none;
+        }
+        p:first-of-type {
+          display: none;
+        }
+      }
+      &.active {
+        .bio {
+          display: block;
+        }
+        .bio-link:before {
+          content: "Hide ";
+        }
+      }
+    }
+    @media (min-width:992px) {
+      .bio-link {
+        display: none;
+      }
+      .bio {
+        position: absolute;
+        display:none;
+        transition: all 0.2s ease-out;
+        z-index: 5;
+        left: 50%;
+        top: 55%;
+        background-color: #fff;
+        padding: 15px;
+        width: 160%;
+        margin: 0 0 0 -80%;
+        border-radius: 10px;
+        border: 2px solid #666;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-sizing: border-box;
+        h5 {
+          margin-top: 0;
+        }
+        p {
+          margin-bottom: 10px;
+        }
+        span {
+          font-style: normal;
+          display: block;
+          font-family: 'Roboto Slab', serif;
+          margin: 5px 0  0;
+          text-align: left;
+          line-height: 1.5;
+          font-size: 12px;
+          color: #777;
+        }
+        &:before {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 12.5px 15px 12.5px;
+          border-color: transparent transparent #666666 transparent;
+          content: "";
+          position: absolute;
+          left: 50%;
+          margin-left: -12.5px;
+          top: -15px;
+        }
+        &:after {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 13px 10px;
+          border-color: transparent transparent #ffffff transparent;
+          content: "";
+          position: absolute;
+          left: 50%;
+          margin-left: -11px;
+          top: -13px;
+        }
+      }
+      &:hover .bio {
+        display: block;
+      }
+    }
   }
   h5 {
     font-size: 1.2em;
-    margin: 25px 0 10px 0;
+    margin: 25px 0 0 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
   p {
     font-style: italic;
-    margin: 0 0 15px 0;
-    &.bio {
-      font-style: normal;
-      margin: 5px 0 45px 0;
-      text-align: left;
-      line-height: 1.5;
-      font-size: 12px;
-      color: #777;
-    }
+    margin: 0 0 10px 0;
   }
 }
 
