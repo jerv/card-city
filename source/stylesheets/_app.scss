@@ -236,6 +236,48 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.l-partners-table {
+  display: table;
+  table-layout: fixed;
+  img {
+    width: 100%;
+  }
+  .desktop {
+    display: none;
+    td {
+      width: 25%;
+    }
+  }
+  .mobile {
+   td {
+    width: 50%;
+   } 
+  }
+  td {
+    padding: 25px;
+    border: 2px solid #ddd;
+  }
+  @media (min-width:620px) {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: table;
+    }
+  }
+  .many-more {
+    font-size: 16px;
+    margin-top: 25px;
+    font-weight: bold;
+    a {
+      margin-left: 10px;
+      font-family: 'Roboto Slab', sans-serif;
+      font-style: italic;
+      font-weight: normal;
+    }
+  }
+}
+
 .l-location-nav {
   margin:10px 0 0 0;
   padding:0;
